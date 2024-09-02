@@ -2,6 +2,11 @@ import { View, Text, ScrollView, Image } from 'react-native'
 import React, { useState } from 'react'
 import { icons, images } from '@/constants'
 import InputField from '@/components/InputField'
+import CustomButton from '@/components/CustomButton'
+
+const onSignUpPress = async () => {
+
+}
 
 const SignUp = () => {
 
@@ -25,6 +30,21 @@ const SignUp = () => {
             value={form.name}
             onChangeText={(value) => setForm({...form, name: value})}
           />
+          <InputField 
+            label='Email'
+            placeholder='Enter your email'
+            icon={icons.email}
+            value={form.email}
+            onChangeText={(value) => setForm({...form, email: value})}
+          />
+          <InputField 
+            label='Password'
+            placeholder='Enter your password'
+            icon={icons.lock}
+            value={form.password}
+            onChangeText={(value) => setForm({...form, password: value})}
+          />
+          <CustomButton title='Sign Up' className='mt-6' onPress={onSignUpPress} />
         </View>
       </View>
     </ScrollView>
