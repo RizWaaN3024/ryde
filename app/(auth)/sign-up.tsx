@@ -3,6 +3,8 @@ import React, { useState } from 'react'
 import { icons, images } from '@/constants'
 import InputField from '@/components/InputField'
 import CustomButton from '@/components/CustomButton'
+import { Link } from 'expo-router'
+import OAuth from '@/components/OAuth'
 
 const onSignUpPress = async () => {
 
@@ -22,7 +24,7 @@ const SignUp = () => {
           <Image source={images.signUpCar} className='z-0 w-full h-[250px]' />
           <Text className='text-2xl text-black font-JakartaSemiBold absolute bottom-5 left-5'>Create Your Account</Text>
         </View>
-        <View>
+        <View className='p-5'>
           <InputField 
             label="Name"
             placeholder="Enter your name"
@@ -45,7 +47,19 @@ const SignUp = () => {
             onChangeText={(value) => setForm({...form, password: value})}
           />
           <CustomButton title='Sign Up' className='mt-6' onPress={onSignUpPress} />
+
+          {/* OAuth */}
+          <OAuth />
+
+          <Link 
+            className='text-lg text-center text-general-200 mt-10'
+            href="/sign-in">
+            <Text>Already have an account?</Text>
+            <Text className='text-primary-500'>Log In</Text>
+          </Link>
         </View>
+
+        {/* Verification Modal */}
       </View>
     </ScrollView>
   )
