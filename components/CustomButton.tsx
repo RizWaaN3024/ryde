@@ -3,7 +3,7 @@ import { ButtonProps } from '@/types/type'
 import React from 'react'
 
 const getBgVariantStyle = (variant: ButtonProps['bgVariant']) => {
-    switch(variant) {
+    switch (variant) {
         case "secondary":
             return "bg-gray-500";
         case "danger":
@@ -23,7 +23,7 @@ const getTextVariantStyle = (variant: ButtonProps["textVariant"]) => {
             return "text-black";
         case "secondary":
             return "text-gray-100";
-        case "danger": 
+        case "danger":
             return "text-red-100";
         case "success":
             return "bg-green-100";
@@ -32,19 +32,19 @@ const getTextVariantStyle = (variant: ButtonProps["textVariant"]) => {
     }
 }
 
-const CustomButton = ({ onPress, title, bgVariant = "primary", textVariant = "default", IconLeft, IconRight, className, ...props}: ButtonProps) => {
-  return (
-    <TouchableOpacity 
-        onPress={onPress}
-        className={`w-full p-3 rounded-full flex flex-row justify-center items-center shadow-md shadow-neutral-400/70
+const CustomButton = ({ onPress, title, bgVariant = "primary", textVariant = "default", IconLeft, IconRight, className, ...props }: ButtonProps) => {
+    return (
+        <TouchableOpacity
+            onPress={onPress}
+            className={`w-full p-3 rounded-full flex flex-row justify-center items-center shadow-md shadow-neutral-400/70
             ${getBgVariantStyle(bgVariant)} ${className}`}
             {...props}
         >
-        {IconLeft && <IconLeft />}
-        <Text className={`text-lg font-bold ${getTextVariantStyle(textVariant)}`}>{title}</Text>
-        {IconRight && <IconRight />}
-    </TouchableOpacity>
-  )
+            {IconLeft && <IconLeft />}
+            <Text className={`text-lg font-bold ${getTextVariantStyle(textVariant)}`}>{title}</Text>
+            {IconRight && <IconRight />}
+        </TouchableOpacity>
+    )
 }
 
 export default CustomButton
