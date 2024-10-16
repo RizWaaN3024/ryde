@@ -24,22 +24,22 @@ export default function RootLayout() {
 
     if (!publishableKey) {
         throw new Error(
-          'Missing Publishable Key. Please set EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY in your .env',
+            'Missing Publishable Key. Please set EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY in your .env',
         )
-      }
-      
+    }
+
 
     useEffect(() => {
-        if(loaded) {
+        if (loaded) {
             SplashScreen.hideAsync();
         }
     }, [loaded])
-    
-    if(!loaded) {
-        return null;
-    }    
 
-    
+    if (!loaded) {
+        return null;
+    }
+
+
     return (
         <ClerkProvider publishableKey={publishableKey}>
             <ClerkLoaded>
@@ -48,7 +48,7 @@ export default function RootLayout() {
                     <Stack.Screen name="(root)" options={{ headerShown: false }} />
                     <Stack.Screen name="(auth)" options={{ headerShown: false }} />
                     <Stack.Screen name="+not-found" />
-                </Stack>    
+                </Stack>
             </ClerkLoaded>
         </ClerkProvider>
     );
